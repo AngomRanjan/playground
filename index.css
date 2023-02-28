@@ -5,3 +5,71 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --h: 50;
+  --s: 100%;
+  --l: 50%;
+  --pri-clr: var(--h) var(--s);
+  --accent: hsl(var(--h) var(--s) var(--l));
+  --complement: hsl(calc(var(--h) + 180) var(--s) var(--l));
+  --cal: calc("hsl(" + 0);
+  --sec-clr: var(--cal) var(--s);
+  --cls: calc(")");
+}
+
+div {
+  color: var(--accent);
+  background-color: var(--complement);
+}
+
+span {
+  color: calc(var(--sec-clr) + "50% )");
+}
+
+main {
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+main > * {
+  height: 3em;
+  background-color: transparent;
+  color: red;
+  border: 1px solid grey;
+}
+
+.colors {
+  color: hsl(218, 31%, 30%); /* #344563 */
+  color: hsl(218, 76%, 15%); /* #091e42 */
+  color: hsl(218, 20%, 39%); /* #505F79 */
+  color: hsl(218, 13%, 48%); /* #6a768a */
+  color: hsl(234, 100%, 69%); /* #6079ff */
+  color: hsl(234, 100%, 75%); /* #808cff*/
+  color: hsl(240, 100%, 96%); /* #808cff*/
+}
+
+#r1 { background-color: hsl(218 31% 30% / 1); }
+
+#r2 { background-color: hsl(218 76% 15% / 1); }
+
+#r3 { background-color: hsl(218 20% 39% / 1); }
+
+#r4 { background-color: hsl(218, 13%, 48%); }
+
+#r5 { background-color: hsl(234, 100%, 69%); }
+
+#r6 { background-color: hsl(234, 100%, 75%); }
+
+#r7 { background-color: hsl(234, 100%, 96%); }
+
+#r1s1 { background-color: hsl(234 13% 30% / 1); }
+
+#r2s1 { background-color: hsl(234 13% 15% / 1); }
+
+#r3s1 { background-color: hsl(234 13% 39% / 1); }
+
+#r4s1 { background-color: hsl(234 13% 48%); }
+
+#r7s1 { background-color: hsl(234, 100%, 96%); }
