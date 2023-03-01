@@ -25,8 +25,8 @@ main > * {
   color: hsl(218, 20%, 39%); /* #505F79 */
   color: hsl(218, 13%, 48%); /* #6a768a */
   color: hsl(234, 100%, 69%); /* #6079ff */
-  color: hsl(234, 100%, 75%); /* #808cff*/
-  color: hsl(240, 100%, 96%); /* #808cff*/
+  color: hsl(234, 100%, 75%); /* #808cff */
+  color: hsl(240, 100%, 96%); /* #808cff */
 }
 
 #r1 { background-color: hsl(218 31% 30% / 1); }
