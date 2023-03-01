@@ -6,27 +6,6 @@
   padding: 0;
 }
 
-:root {
-  --h: 50;
-  --s: 100%;
-  --l: 50%;
-  --pri-clr: var(--h) var(--s);
-  --accent: hsl(var(--h) var(--s) var(--l));
-  --complement: hsl(calc(var(--h) + 180) var(--s) var(--l));
-  --cal: calc("hsl(" + 0);
-  --sec-clr: var(--cal) var(--s);
-  --cls: calc(")");
-}
-
-div {
-  color: var(--accent);
-  background-color: var(--complement);
-}
-
-span {
-  color: calc(var(--sec-clr) + "50% )");
-}
-
 main {
   margin: 1em auto;
   display: grid;
