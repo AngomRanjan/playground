@@ -1,4 +1,4 @@
-(function addSocialMediaList() {
+(() => {
   const arrSocialMedia = [
     {
       media: 'twitter',
@@ -43,4 +43,4 @@
 
   const socialMedia = Array.from(document.getElementsByClassName('socialMedia'));
   socialMedia.forEach((social) => mediaList(social));
-}());
+})();
