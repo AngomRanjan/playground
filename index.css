@@ -6,20 +6,76 @@
   padding: 0;
 }
 
+ul { list-style: none; }
+
+#accordion,
+#accordion ul,
+#accordion li { border: 1px solid green; }
+
+#accordion {
+  width: 60%;
+  margin: auto;
+}
+
+#accordion ul { margin-top: 24px; }
+
+#accordion > li {
+  padding: 24px 12px;
+}
+
 #accordion :is(ul, label + input) {
   display: none;
 }
 
 #accordion input:checked + ul {
   display: flex;
+  flex-direction: column;
   list-style: none;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 #accordion > li:has(input:not(:checked)) {
   border-bottom: 1px solid red;
 }
 
+label > span {
+  background-image: url('icons/open.png');
+  background-position: center center;
+  width: 1em;
+  background-repeat: no-repeat;
+}
+
 #accordion > li:has(input:checked) span {
-  color: green;
+  background-image: url('icons/drop.png');
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill__items {
+  display: flex;
+  padding: 0 0.2em;
+  align-items: center;
+  gap: 1em;
+  border: 1px solid red;
+}
+
+.skill__items > img {
+  width: 3em;
+}
+
+@media only screen and (min-width: 769px) {
+  #accordion input:checked + ul {
+    flex-direction: row;
+    gap: 0.5em;
+  }
+
+  .skill__items {
+    flex-direction: column;
+    width: max-content;
+    align-items: flex-start;
+    gap: 0.6em;
+  }
 }
