@@ -9,6 +9,7 @@
 #accordion :is(ul, label + input) {
   display: none;
 }
+
 #accordion input:checked + ul {
   display: flex;
   list-style: none;
