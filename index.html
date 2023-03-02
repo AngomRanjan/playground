@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>Playground</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
   <div>
     <h1>
@@ -20,31 +22,40 @@
     </span>
   </div>
   <main>
-    <div class="ref">Ref Color</div>
-    <div class="v1">s1</div>
-    <div class="v2">s2</div>
-    <div class="v3">s3</div>
-    <div class="ele">ele</div>
-    <div class="ref" id="r1">r</div>
-    <div class="v1" id="r1s1">s1</div>
-    <div class="v2">s2</div>
-    <div class="v3">s3</div>
-    <div class="ele">ele</div>
-    <div class="ref" id="r2">r</div>
-    <div class="v1" id="r2s1">s1</div>
-    <div class="v2">s2</div>
-    <div class="v3">s3</div>
-    <div class="ele">ele</div>
-    <div class="ref" id="r3">r</div>
-    <div class="v1" id="r3s1">s1</div>
-    <div class="v2">s2</div>
-    <div class="v3">s3</div>
-    <div class="ele">ele</div>
-    <div class="ref" id="r4">r</div>
-    <div class="v1" id="r4s1">s1</div>
-    <div class="v2">s2</div>
-    <div class="v3">s3</div>
-    <div class="ele">ele</div>
+    <div class="socialMedia"></div>
+    <div class="socialMedia"></div>
+    <br>
+    <ul id="accordion">
+      <li>
+        <label for="first">cat1 <span>></span></label>
+        <input type="radio" name="accordion" id="first" checked>
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </li>
+      <li>
+        <label for="second">cat2 <span>></span></label>
+        <input type="radio" name="accordion" id="second">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </li>
+      <li>
+        <label for="third">cat3 <span>></span></label>
+        <input type="radio" name="accordion" id="third">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </li>
+    </ul>
   </main>
+  <script src="index.js"></script>
 </body>
+
 </html>
