@@ -22,12 +22,29 @@ form {
 
 label {
   margin-bottom: 8px;
+  position: relative;
+}
+
+form label::after {
+  content: '(optional)';
+  color: gray;
+  margin-left: 5px; /* Adjust as needed */
+}
+
+label:has(+ input:required)::after {
+  content: '*';
+  color: red;
+  margin-left: 5px; /* Adjust as needed */
 }
 
 input,
 textarea {
   padding: 8px;
   margin-bottom: 16px;
+}
+
+input:invalid {
+  border: 1px solid red;
 }
 
 button {
