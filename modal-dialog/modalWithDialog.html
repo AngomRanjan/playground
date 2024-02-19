@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Dialog with Blur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('your_background_image.jpg'); /* Replace with your background image URL */
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #myModal {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    #myModal::backdrop {
+      backdrop-filter: blur(8px); /* Adjust the blur value as needed */
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="openModal()">Open Modal</button>
+
+  <dialog id="myModal">
+    <div id="closeModal" onclick="closeModal()">X</div>
+    <h2>Modal Header</h2>
+    <p>This is some content inside the modal.</p>
+  </dialog>
+
+  <script>
+    function openModal() {
+      document.getElementById('myModal').showModal();
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').close();
+    }
+  </script>
+
+</body>
+</html>
