@@ -1,76 +1,49 @@
 const itemCardTemplate = (item) => {
-  return `<input type="checkbox" />
+  return `<li><input type="checkbox" />
   <input type="text" name=${item} value=${item} readonly />      
-  <button type="button" data-action="edit">edit</button>
-  <button type="button" data-action="remove">remove</button>`  
+  <button type="button" data-action="edit"></button>
+  <button type="button" data-action="update"></button>
+  <button type="button" data-action="remove"></button></li>`  
 }
 
-const addItem = (val) => {
-  const list = document.getElementById('item-list');
-  const li = document.createElement('li');
-  li.innerHTML = itemCardTemplate(val);
-  list.appendChild(li);
-};
-
-const handleSubmit = (e) => {
+const addItem = (e) => {
   e.preventDefault();
-  const form = e.target
-  addItem(form.elements['new-item'].value);
-  form.reset();
+  const list = document.getElementById('item-list');
+  const li = itemCardTemplate(e.target.elements['new-item'].value);
+  list.insertAdjacentHTML('beforeend', li);
+  e.target.reset();
 };
-const removeItem = (node) => node.remove();
-const toggleAction = (btnEditUpdate, newAction) => {
-  btnEditUpdate.dataset.action = newAction;
-  btnEditUpdate.textContent = newAction;
+
+const editItem = (textInput) => {
+  textInput.readOnly = false;
+  textInput.focus();
 };
-const editItem = (node) => {
-  node.removeAttribute('readonly');
-  node.focus();
+
+const updateItem = (textInput) => {
+  textInput.readOnly = true;
 };
-const updateItem = (node) => {
-  node.setAttribute('readonly', true);
-  node.previousElementSibling.focus();
+
+const onInputTextBlur = (e) => {
+  if (e.target.type === 'text' && !e.target.readOnly) 
+  updateItem(e.target);
 };
-const handleListClick = (e) => {
+
+const onInputTextKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.target.readOnly) 
+      e.target.previousElementSibling.focus();
+};
+
+const handleClick = (e) => {
   const action = e.target.dataset.action;
-  switch (action) {
-    case 'remove':
-      removeItem(e.target.parentNode);
-      break;
-    case 'edit':
-      editItem(e.target.previousElementSibling);
-      toggleAction(e.target, 'update');
-      break;
-    case 'update':
-      editItem(e.target.previousElementSibling);
-      toggleAction(e.target, 'edit');
-      break;
-
-    default:
-      // no action
-      break;
-  }
+  const listItem = e.target.closest('li');
+  if (action === 'edit')
+    editItem(listItem.children[1]);
+  else if (action === 'remove')
+    listItem.remove();
 };
 
-const handleChange = (e) => {
-  if (e.target.type !== 'text') return;
-  const k = e.target.defaultValue;
-  console.log('change', e.target, k, e);
-  e.target.defaultValue = e.target.value;
-  e.target.setAttribute('readonly', true);
-};
+document.getElementById('add-item').addEventListener('submit', addItem);
+document.getElementById('item-list').addEventListener('click', handleClick);
+document.getElementById('item-list').addEventListener('blur', onInputTextBlur, true); // Use capture phase
+document.getElementById('item-list').addEventListener('keydown', onInputTextKeyDown, true); // Use capture phase
 
-const onKeyUp = (e) => {
-  if (e.target.type !== 'text' || e.target.readonly) return;
-  if (e.key === 'Enter') e.target.previousElementSibling.focus();
-  if (e.key === 'Escape') {
-    e.target.value = e.target.defaultValue;
-    e.target.previousElementSibling.focus();
-  };
-
-};
-
-document.getElementById('add-item').addEventListener('submit', handleSubmit);
-document.getElementById('item-list').addEventListener('click', handleListClick);
-document.getElementById('item-list').addEventListener('change', handleChange);
-document.getElementById('item-list').addEventListener('keyup', onKeyUp);
