@@ -1,0 +1,12 @@
+body {
+  color: #222;
+  background: #fff;
+  font: 100% system-ui;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eee;
+    background: #121212;
+  }
+}
