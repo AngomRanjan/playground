@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+}
+.tabs__container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.tablist {
+  display: flex;
+  background: #ddd;
+  padding: 5px;
+  gap: 5px;
+}
+.tab {
+  flex: 1;
+  padding: 10px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+.tab[aria-selected='true'] {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+.tabpanel {
+  display: none;
+  padding: 20px;
+}
+.tabpanel[aria-hidden='false'] {
+  display: block;
+}
