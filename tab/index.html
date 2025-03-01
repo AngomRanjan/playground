@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Tabs Example</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="tabs__container">
+      <!-- Tab List -->
+      <nav role="tablist" class="tablist">
+        <button
+          role="tab"
+          id="tab1"
+          aria-controls="panel1"
+          aria-selected="true"
+          class="tab"
+          tabindex="0"
+        >
+          Tab 1
+        </button>
+        <button
+          role="tab"
+          id="tab2"
+          aria-controls="panel2"
+          aria-selected="false"
+          class="tab"
+          tabindex="-1"
+        >
+          Tab 2
+        </button>
+        <button
+          role="tab"
+          id="tab3"
+          aria-controls="panel3"
+          aria-selected="false"
+          class="tab"
+          tabindex="-1"
+        >
+          Tab 3
+        </button>
+      </nav>
+
+      <!-- Tab Panels -->
+      <section
+        id="panel1"
+        role="tabpanel"
+        aria-labelledby="tab1"
+        aria-hidden="false"
+        class="tabpanel"
+      >
+        <h2>Tab 1 Content</h2>
+        <p>This is the content for Tab 1.</p>
+      </section>
+
+      <section
+        id="panel2"
+        role="tabpanel"
+        aria-labelledby="tab2"
+        aria-hidden="true"
+        class="tabpanel"
+      >
+        <h2>Tab 2 Content</h2>
+        <p>This is the content for Tab 2.</p>
+      </section>
+
+      <section
+        id="panel3"
+        role="tabpanel"
+        aria-labelledby="tab3"
+        aria-hidden="true"
+        class="tabpanel"
+      >
+        <h2>Tab 3 Content</h2>
+        <p>This is the content for Tab 3.</p>
+      </section>
+    </section>
+
+    <script src="script.js" />
+  </body>
+</html>
